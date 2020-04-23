@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-world
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: python-world
+  template:
+    metadata:
+      labels:
+        app: python-world
+    spec:
+      containers:
+      - image: raghuveerk/python-world
+        name: python-world
+        ports:
+        - containerPort: 8000
